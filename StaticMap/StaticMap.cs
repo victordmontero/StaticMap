@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*!
+ * \author Victor D. Montero
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,13 +15,14 @@ namespace StaticMap
      * \brief Helper class to download an static map image
      * 
      * This class provides some methods to downloads static map image from google.
-     * You need a Google Api Key, in order to use the service.
+     * You need a Google Api Key, in order to use the service
+     * please specify such key before using the any method of this library.
      */
     public static class StaticMap
     {
 
         public static string GoogleKey { get; set; }/*! https://developers.google.com/maps/documentation/javascript/get-api-key */
-        public static string ApiUrl { get; set; }
+        public static string ApiUrl = "https://maps.googleapis.com/maps/api/staticmap";
 
         /*!
          * \brief Downloads a png image with a resolution up to 640 x 480
