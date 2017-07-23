@@ -34,8 +34,14 @@ namespace StaticMap
          */
         public static byte[] DownloadMap(double latitude, double longitude, Dictionary<string, string> options = null)
         {
-            string url = string.Empty;
             WebClient client = new WebClient();
+
+            return client.DownloadData(GenerateUrl(latitude, longitude, options));
+        }
+
+        private static string GenerateUrl(double latitude, double longitude, Dictionary<string, string> options)
+        {
+            string url = string.Empty;
 
             if (options == null)
                 options = new Dictionary<string, string>();
@@ -63,7 +69,7 @@ namespace StaticMap
 
             url += string.Format("key={0}", GoogleKey);
 
-            return client.DownloadData(url);
+            return url;
         }
     }
 }
